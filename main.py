@@ -1,7 +1,9 @@
 from stats import get_num_words, get_char_count, get_sorted_chars
-from pathlib import Path
+import sys
 
-root_dir = Path(__file__).resolve().parent
+if len(sys.argv) < 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
 
 
 def get_book_text(filepath):
@@ -11,9 +13,7 @@ def get_book_text(filepath):
         return contents
 
 
-frankenstein_path = root_dir / "books" / "frankenstein.txt"
-
-book = get_book_text(frankenstein_path)
+book = get_book_text(sys.argv[1])
 char_dict = get_char_count(book)
 sorted_chars = get_sorted_chars(char_dict)
 
