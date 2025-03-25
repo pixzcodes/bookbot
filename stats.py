@@ -25,3 +25,14 @@ def get_sorted_chars(char_dict):
         char_list.append({"name": entry, "num": char_dict[entry]})
     char_list.sort(reverse=True, key=sort_on)
     return char_list
+
+
+def get_alpha_sorted_chars(char_dict):
+    def sort_on(dict):
+        return dict["name"]
+
+    char_list = []
+    for entry in char_dict:
+        char_list.append({"name": entry, "num": char_dict[entry]})
+    char_list.sort(reverse=False, key=sort_on)
+    return char_list

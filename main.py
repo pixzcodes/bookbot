@@ -1,4 +1,4 @@
-from stats import get_num_words, get_char_count, get_sorted_chars
+from stats import get_num_words, get_char_count, get_sorted_chars, get_alpha_sorted_chars
 import sys
 
 if len(sys.argv) < 2:
@@ -16,11 +16,12 @@ def get_book_text(filepath):
 book = get_book_text(sys.argv[1])
 char_dict = get_char_count(book)
 sorted_chars = get_sorted_chars(char_dict)
+# sorted_chars = get_alpha_sorted_chars(char_dict)
 
 
 def print_report():
     print("============ BOOKBOT ============")
-    print('Analyzing book found at books/frankenstein.txt ...')
+    print(f'Analyzing book found at {sys.argv[1]} ...')
     print("----------- Word Count ----------")
     print(f'Found {get_num_words(book)} total words')
     print("--------- Character Count -------")
